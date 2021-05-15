@@ -1,0 +1,5 @@
+* Must switch off the convertion of url on TINY MCE
+Open the file: 
+   \WebSite2V3\tinymce\jscripts\tiny_mce\tiny_mce_src.js
+Do amend the line putting 0 in place of 1 and save as tiny_mce.js: 
+   convert_urls : 0, 

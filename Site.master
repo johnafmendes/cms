@@ -1,0 +1,213 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+    <link href="Styles.css" rel="stylesheet" type="text/css" id="StylePage" runat="server" />
+    <link rel="stylesheet" type="text/css" href="ddlevelsfiles/ddlevelsmenu-base.css" runat="server" id="StylePageMenuBase" />
+    <link rel="stylesheet" type="text/css" href="ddlevelsfiles/ddlevelsmenu-topbar.css" runat="server" id="StylePageMenuTop" />
+    <link rel="stylesheet" type="text/css" href="ddlevelsfiles/ddlevelsmenu-sidebar.css" runat="server" id="StylePageMenuSide" />    
+    <script type="text/javascript" language="javascript">
+        function loadjscssfile(filename, filetype) {
+            if (filetype == "js") { //if filename is a external JavaScript file
+                var fileref = document.createElement('script')
+                fileref.setAttribute("type", "text/javascript")
+                fileref.setAttribute("src", filename)
+            }
+            else if (filetype == "css") { //if filename is an external CSS file
+                fileref = document.createElement("link")
+                fileref.setAttribute("rel", "stylesheet")
+                fileref.setAttribute("type", "text/css")
+                fileref.setAttribute("href", filename)
+            }
+            if (typeof fileref != "undefined")
+                document.getElementsByTagName("head")[0].appendChild(fileref)
+        }
+
+        loadjscssfile("Styles.css", "css") ////dynamically load and add this .css file
+    </script>
+</head>
+<body>
+<form id="frmClient" runat="server" method="post" enctype="multipart/form-data">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <asp:UpdatePanel ID="upMainContent" runat="server">
+        <ContentTemplate>
+            <div id="container">
+              <div id="headerContent">
+                <div id="leftsideHeader">
+                  <div id="logoWrap">
+                    <div id="logo" runat="server"/>
+                  </div>
+                </div>
+                <div id="rightsideHeader">
+                    <div id="menuWrap">
+                        <div id="menu" class="color1">
+                            <div class="bl">
+                                <div class="br">
+                                    <div class="tl">
+                                        <div class="tr">
+                                            <asp:ContentPlaceHolder id="MainMenu" runat="server"></asp:ContentPlaceHolder>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>-->
+                        <div id="menuUnderline" class="underline"></div>
+                        <div id="languagesHTML" ><asp:ContentPlaceHolder id="Languages" runat="server"></asp:ContentPlaceHolder></div>
+                    </div>
+                </div>
+              </div>
+              <asp:ContentPlaceHolder id="MainHeader" runat="server"></asp:ContentPlaceHolder>
+              <div id="dividerUnderline" class="underline"></div>
+              <div id="bodycontainer">
+                <asp:ContentPlaceHolder id="MainMedia" runat="server"></asp:ContentPlaceHolder>
+                <div id="leftside">
+                  <div id="div1" class="underline2"></div>
+                  <asp:ContentPlaceHolder id="MainContent" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                
+                <div id="rightside">
+                    <div id="div8" class="underline2"></div>
+                    <div id="BodyRigthSide">
+                        <asp:ContentPlaceHolder id="R1Enabled" runat="server">
+                            <div id="R1">
+                                <table border="0" width="100%" id="table3" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                                  <tr>
+                                    <td>
+	                                  <table border="0" width="100%" id="table4" bgcolor="White" cellpadding="2">
+                                        <tr>
+                                            <td>
+                                              <div id="Div12" class="headRightColumn">
+                                                  <div id="Div10" class="square"></div>
+                                                  <asp:ContentPlaceHolder id="R1TitleContent" runat="server">
+                                                  </asp:ContentPlaceHolder>
+                                              </div>
+                                              <div id="R1Underline" class="underline"></div>
+                                              <div id="Div15" class="bodyRightColumn">
+                                                <asp:ContentPlaceHolder id="R1Content" runat="server">
+                                                </asp:ContentPlaceHolder>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                            </div>
+                            <br/>
+                        </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder id="R2Enabled" runat="server">
+                            <div id="R2">
+                                <table border="0" width="100%" id="table1" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                                  <tr>
+                                    <td>
+	                                  <table border="0" width="100%" id="table2" bgcolor="White" cellpadding="2">
+                                        <tr>
+                                            <td>
+                                              <div id="Div4" class="headRightColumn">
+                                                  <div id="Div5" class="square"></div>
+                                                  <asp:ContentPlaceHolder id="R2TitleContent" runat="server">
+                                                  </asp:ContentPlaceHolder>
+                                              </div>
+                                              <div id="Div6" class="underline"></div>
+                                              <div id="Div7" class="bodyRightColumn">
+                                                <asp:ContentPlaceHolder id="R2Content" runat="server">
+                                                </asp:ContentPlaceHolder>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                            </div>
+                            <br />
+                        </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder id="R3Enabled" runat="server">
+                            <div id="R3">
+                                <!--<div id="R3ContentHTML" runat="server"></div>-->
+                                <table border="0" width="100%" id="table5" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                                  <tr>
+                                    <td>
+                                      <table border="0" width="100%" id="table6" bgcolor="White" cellpadding="2">
+                                        <tr>
+                                            <td>
+                                              <div id="Div3" class="headRightColumn">
+                                                  <div id="Div84" class="square"></div>
+                                                  <asp:ContentPlaceHolder id="R3TitleContent" runat="server">
+                                                  </asp:ContentPlaceHolder>
+                                              </div>
+                                              <div id="R3Underline" class="underline"></div>
+                                              <div id="Div91" class="bodyRightColumn">
+                                                <asp:ContentPlaceHolder id="R3Content" runat="server">            
+                                                </asp:ContentPlaceHolder>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                            </div>
+                            <br/>
+                        </asp:ContentPlaceHolder>
+                        
+                        <asp:ContentPlaceHolder id="R4Enabled" runat="server">
+                            <div id="R4">
+                                <table border="0" width="100%" id="table7" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                                  <tr>
+                                    <td>
+	                                  <table border="0" width="100%" id="table8" bgcolor="White" cellpadding="2">
+                                        <tr>
+                                          <td>
+                                            <asp:ContentPlaceHolder id="R4TitleContent" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                                <div id="banner1"></div>
+                                                <!--<div id="banner2"></div>-->
+                                            <!--<object width="100%" height="100%">
+                                                <param name="media" value="Intranetbanner.swf"></param>
+                                                <param name="file" value="123.xml"></param>
+                                                <embed src="Intranetbanner.swf?file=123.xml" width="100%" height="100%"></embed>
+                                            </object>-->
+                                            <asp:ContentPlaceHolder id="R4Content" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>    
+                            </div>
+                            <br />
+                        </asp:ContentPlaceHolder>            
+                    </div>        
+                </div>
+              </div>
+              <div id="div2" class="underline"></div>
+              <div id="footer">
+                <center><asp:ContentPlaceHolder id="MainFooter" runat="server"></asp:ContentPlaceHolder></center>
+                <div id="footerContent" class="color1">
+                    <div class="bl">
+                        <div class="br">
+                            <div class="tl">
+                                <div class="tr">
+                                    <div id="F1">developed by John Mendes, MSc | <a href="/admin/Default.aspx" id="AdminLink" runat="server">Administration page</a></div>                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div> 
+        </ContentTemplate>
+    </asp:UpdatePanel>
+</form>
+<asp:ContentPlaceHolder id="JavaScriptAtEndPage" runat="server"></asp:ContentPlaceHolder>
+</body>
+</html>

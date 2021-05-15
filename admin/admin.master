@@ -1,0 +1,293 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="admin_admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../Styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        function DisplaySessionTimeout(sessionTimeout) {
+            //assigning minutes left to session timeout to Label
+            document.getElementById("<%= lblSessionTime.ClientID %>").innerText = sessionTimeout;
+            sessionTimeout = sessionTimeout - 1;
+
+            //if session is not less than 0
+            if (sessionTimeout >= 0)
+            //call the function again after 1 minute delay
+                window.setTimeout("DisplaySessionTimeout(" + sessionTimeout + ")", 60000);
+            else {
+                //show message box
+                alert("Your current Session is over.");
+            }
+        }
+    </script>
+    <!--
+        ICONS USED CAME FROM:
+        
+        Author:	Mart (Marco Martin)
+        http://www.iconarchive.com/category/system/glaze-icons-by-mart.html   
+        Homepage:	http://www.notmart.org
+        License:	GNU Lesser General Public License
+        Commercial usage: Allowed
+        Readme: license.txt : http://www.iconarchive.com/icons/mart/glaze/license.txt
+        
+        Author:	Mayosoft
+        http://www.iconarchive.com/category/application/aero-vista-icons-by-mayosoft.html
+        Homepage:	http://www.mayosoft.com.mx
+        License:	Free for non-commercial use.
+        Readme: readme.txt : http://www.iconarchive.com/icons/mayosoft/aero-vista/readme.txt
+
+        Author:	IconsCity
+        http://www.iconarchive.com/category/application/flags-icons-by-iconscity.html
+        Homepage:	http://www.iconscity.com
+        License:	Free for non-commercial use.
+
+        Author:	Icons-Land
+        Homepage:	http://www.icons-land.com
+        License:	Free for non-commercial use.
+        Readme: IconsLandStockIconsLicense.txt : http://www.iconarchive.com/icons/icons-land/vista-elements/IconsLandStockIconsLicense.txt
+        
+        Author:	Lokas Software
+        Homepage:	http://awicons.com
+        License:	Free for personal desktop use only.
+        Commercial usage: Not allowed
+        Readme: readme.txt - http://www.iconarchive.com/icons/awicons/vista-artistic/readme.txt
+        
+        Author:	Deleket (Jojo Mendoza)
+        Homepage:	http://www.deleket.com/
+        License:	CC Attribution-Noncommercial-No Derivate 3.0 - http://creativecommons.org/licenses/by-nc-nd/3.0/
+        Commercial usage: Allowed (Author Approval required)
+        
+        Author:	Nando Design Studio (Fernando Albuquerque)
+        Homepage:	http://nandostudio.com
+        License:	Free for personal desktop use only.
+        Commercial usage: Not allowed
+        Readme: licence.txt - http://www.iconarchive.com/icons/nandostudio/be-the-dj/licence.txt
+    -->
+</head>
+<body>
+<form id="frmMaster" runat="server" method="post" enctype="multipart/form-data">
+<div id="container">
+  <div id="header">
+    <div id="leftsideHeader">        
+      <div id="logoWrap">
+        <div id="logo" runat="server"></div>
+      </div>
+    </div>
+    <div id="rightsideHeader">
+      <div id="menuWrap">
+         <asp:ContentPlaceHolder id="RSMainMenu" runat="server">         
+            <asp:ContentPlaceHolder id="MainMenu" runat="server">
+                <div id="menu" class="color1">
+                    <div class="bl">
+                        <div class="br">
+                            <div class="tl">
+                                <div class="tr">
+                                    <a href="ControlPanel.aspx"  style="display:inline;">Home</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;
+                                    <div id="linkUsers" runat="server"  style="display:inline;"><a href="Users.aspx?action=0">Users</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkMenu" runat="server"  style="display:inline;"><a href="Menu.aspx?action=0">Menu</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkMedia" runat="server"  style="display:inline;"><a href="Media.aspx?action=0">Media</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkArticles" runat="server"  style="display:inline;"><a href="Article.aspx?action=0">Articles</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkTags" runat="server"  style="display:inline;"><a href="Tags.aspx?action=0">Tags</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkGroupMedia" runat="server" style="display:inline;"><a href="GroupMedia.aspx?action=0" title="Group of Media">Group Media</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkGroupMenu" runat="server" style="display:inline;"><a href="GroupMenu.aspx?action=0" title="Group of Menus">Group Menus</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkLanguages" runat="server" style="display:inline;"><a href="Languages.aspx?action=0">Languages</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkSubject" runat="server" style="display:inline;"><a href="Subject.aspx?action=0">Subjects</a>&nbsp;&nbsp;<span class="MenuDivisor">&nbsp;</span>&nbsp;</div>
+                                    <div id="linkSettings" runat="server" style="display:inline;"><a href="Config.aspx?action=0">Settings</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menuUnderline" class="underline"></div>
+            </asp:ContentPlaceHolder>
+         </asp:ContentPlaceHolder>
+      </div>
+    </div>
+  </div>
+  <div id="dividerUnderline" class="underline"></div>
+  <div id="bodycontainer">
+    <div id="leftside">
+        <div id="bodyContent">
+            <div id="div1" class="underline2"></div>
+            <table border="0" width="100%" id="table9" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+              <tr>
+                <td>
+                  <table border="0" width="100%" id="table10" bgcolor="White" cellpadding="2">
+                    <tr>
+                        <td>
+                          <div id="Div3" class="headRightColumn">
+                              <div id="Div17" class="square"></div>
+                              <div id="Div20" class="TitleColumns" runat="server">
+                                <asp:ContentPlaceHolder id="TitleMainContent" runat="server">
+                                </asp:ContentPlaceHolder>
+                              </div>
+                          </div>
+                          <div id="Div21" class="underline"></div>
+                          <div id="Div22" class="bodyRightColumn">
+                            <div id="Div23" runat="server">
+                                <asp:ContentPlaceHolder id="MainContent" runat="server">                                            
+                                </asp:ContentPlaceHolder>
+                            </div>
+                          </div>
+                        </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div id="rightside">
+        <div id="div24" class="underline2"></div>
+        <div id="BodyRigthSide">
+            <asp:ContentPlaceHolder id="R1Enabled" runat="server">
+                <div id="R1">
+                    <table border="0" width="100%" id="table3" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                      <tr>
+                        <td>
+	                      <table border="0" width="100%" id="table4" bgcolor="White" cellpadding="2">
+                            <tr>
+                                <td>
+                                  <div id="Div12" class="headRightColumn">
+                                      <div id="Div10" class="square"></div>
+                                      <div id="R1TitleHTML" class="TitleColumns" runat="server">Actions</div>
+                                  </div>
+                                  <div id="R1Underline" class="underline"></div>
+                                  <div id="Div15" class="bodyRightColumn">
+                                    <div id="R1ContentHTML" runat="server">
+                                        <asp:ContentPlaceHolder id="R1Content" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>    
+                </div>
+              <br/>
+            </asp:ContentPlaceHolder>
+
+            <asp:ContentPlaceHolder id="R2Enabled" runat="server">
+                <div id="R2">
+                    <table border="0" width="100%" id="table1" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                      <tr>
+                        <td>
+	                      <table border="0" width="100%" id="table2" bgcolor="White" cellpadding="2">
+                            <tr>
+                                <td>
+                                  <div id="Div4" class="headRightColumn">
+                                      <div id="Div5" class="square"></div>
+                                      <div id="R2TitleHTML" class="TitleColumns" runat="server">Messages</div>
+                                  </div>
+                                  <div id="Div7" class="underline"></div>
+                                  <div id="Div8" class="bodyRightColumn">
+                                    <div id="R2ContentHTML" runat="server">
+                                        <div class="title6" id="SessionTime">
+                                            Session time left:&nbsp;<asp:Label ID="lblSessionTime" runat="server" />&nbsp;minutes.
+                                        </div>
+                                        <asp:ContentPlaceHolder id="R2Content" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>    
+                </div>
+              <br/>
+            </asp:ContentPlaceHolder>
+
+            <asp:ContentPlaceHolder id="R3Enabled" runat="server">
+                <div id="R3">
+                    <table border="0" width="100%" id="table5" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                      <tr>
+                        <td>
+	                      <table border="0" width="100%" id="table6" bgcolor="White" cellpadding="2">
+                            <tr>
+                                <td>
+                                  <div id="Div6" class="headRightColumn">
+                                      <div id="Div9" class="square"></div>
+                                      <div id="R3TitleHTML" class="TitleColumns" runat="server"></div>
+                                  </div>
+                                  <div id="Div13" class="underline"></div>
+                                  <div id="Div14" class="bodyRightColumn">
+                                    <div id="R3ContentHTML" runat="server">
+                                        <asp:ContentPlaceHolder id="R3Content" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>    
+                </div>
+              <br/>
+            </asp:ContentPlaceHolder>
+            
+            <asp:ContentPlaceHolder id="R4Enabled" runat="server">
+                <div id="R4">
+                    <table border="0" width="100%" id="table7" bgcolor="#3395cd" cellspacing="1" cellpadding="0">
+                      <tr>
+                        <td>
+	                      <table border="0" width="100%" id="table8" bgcolor="White" cellpadding="2">
+                            <tr>
+                                <td>
+                                  <div id="Div11" class="headRightColumn">
+                                      <div id="Div16" class="square"></div>
+                                      <div id="R4TitleHTML" class="TitleColumns" runat="server">Help</div>
+                                  </div>
+                                  <div id="Div18" class="underline"></div>
+                                  <div id="Div19" class="bodyRightColumn">
+                                    <div id="R4ContentHTML" runat="server">
+                                        <asp:ContentPlaceHolder id="R4Content" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                  </div>
+                                </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>    
+                </div>
+              <br/>
+            </asp:ContentPlaceHolder>
+                        
+        </div>
+    </div>
+  </div>
+  <div id="div2" class="underline"></div>
+  <div id="footer">
+    <div id="footerContent" class="color1">
+        <div class="bl">
+            <div class="br">
+                <div class="tl">
+                    <div class="tr">
+                        <div id="F1">
+                            <asp:ContentPlaceHolder id="footer1" runat="server">
+                                <asp:ImageButton ImageUrl="../images/Arreter-SZ-48x48.png" Width="30" ImageAlign="AbsBottom" ID="btnLogout" OnCommand="LogoutAdmin" ToolTip="Logout" runat="server"/> | 
+                            </asp:ContentPlaceHolder>
+                             <a href="../Default.aspx">Web page</a> | developed by John Mendes, MSc
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+</form>
+<div id="JavaScriptAtEndPage" runat="server"></div>
+</body>
+</html>
