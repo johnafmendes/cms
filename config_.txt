@@ -1,5 +1,0 @@
-ppmy0019.servidorwebfacil.com
-3306
-valor_root
-12345A!
-valordosimoveis_cms
